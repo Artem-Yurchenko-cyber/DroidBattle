@@ -1,6 +1,5 @@
 ﻿using System;
 using DroidBattle.Droids;
-using DroidBattle.Core;
 
 namespace DroidBattle.Modes
 {

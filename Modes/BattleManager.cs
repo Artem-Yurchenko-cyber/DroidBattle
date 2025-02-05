@@ -1,10 +1,9 @@
 ﻿using System;
-using DroidBattle.Core;
 using DroidBattle.Droids;
 
 namespace DroidBattle.Modes
 {
-    public static class BattleModes
+    public static class BattleManager
     {
         public static void StartDuel(Droid droid1, Droid droid2)
         {
@@ -14,7 +13,9 @@ namespace DroidBattle.Modes
             {
                 droid1.Attack(droid2);
                 if (droid2.IsAlive())
-                    droid2.Attack(droid1);
+                { 
+                droid2.Attack(droid1);
+                }
             }
 
             Console.WriteLine(droid1.IsAlive() ? $"{droid1.Name} переміг!" : $"{droid2.Name} переміг!");
@@ -62,11 +63,55 @@ namespace DroidBattle.Modes
 
             while ((player1.IsAlive() || player2.IsAlive()) && (player3.IsAlive() || player4.IsAlive()))
             {
-                if (player1.IsAlive()) player1.Attack(player3.IsAlive() ? player3 : player4);
-                if (player2.IsAlive()) player2.Attack(player4.IsAlive() ? player4 : player3);
-                if (player3.IsAlive()) player3.Attack(player1.IsAlive() ? player1 : player2);
-                if (player4.IsAlive()) player4.Attack(player2.IsAlive() ? player2 : player1);
+                if (player1.IsAlive())
+                {
+                    if (player3.IsAlive())
+                    {
+                        player1.Attack(player3);
+                    }
+                    else
+                    {
+                        player1.Attack(player4);
+                    }
+                }
+
+                if (player2.IsAlive())
+                {
+                    if (player4.IsAlive())
+                    {
+                        player2.Attack(player4);
+                    }
+                    else
+                    {
+                        player2.Attack(player3);
+                    }
+                }
+
+                if (player3.IsAlive())
+                {
+                    if (player1.IsAlive())
+                    {
+                        player3.Attack(player1);
+                    }
+                    else
+                    {
+                        player3.Attack(player2);
+                    }
+                }
+
+                if (player4.IsAlive())
+                {
+                    if (player2.IsAlive())
+                    {
+                        player4.Attack(player2);
+                    }
+                    else
+                    {
+                        player4.Attack(player1);
+                    }
+                }
             }
+
 
             Console.WriteLine((player1.IsAlive() || player2.IsAlive()) ? "Перемогла команда 1!" : "Перемогла команда 2!");
         }
@@ -77,9 +122,13 @@ namespace DroidBattle.Modes
             string choice = Console.ReadLine();
 
             if (choice == "1")
+            {
                 return new AttackDroid(playerName);
+            }
             else
+            {
                 return new DefenseDroid(playerName);
+            }
         }
 
     }

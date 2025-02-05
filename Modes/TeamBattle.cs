@@ -1,5 +1,4 @@
 ﻿using System;
-using DroidBattle.Core;
 using DroidBattle.Droids;
 
 namespace DroidBattle.Modes
@@ -17,12 +16,18 @@ namespace DroidBattle.Modes
             {
                 foreach (var droid in team1)
                 {
-                    if (droid.IsAlive()) droid.Attack(GetRandomAliveDroid(team2));
+                    if (droid.IsAlive())
+                    {
+                        droid.Attack(GetRandomAliveDroid(team2));
+                    }
                 }
 
                 foreach (var droid in team2)
                 {
-                    if (droid.IsAlive()) droid.Attack(GetRandomAliveDroid(team1));
+                    if (droid.IsAlive())
+                    {
+                        droid.Attack(GetRandomAliveDroid(team1));
+                    }
                 }
             }
 
@@ -35,16 +40,26 @@ namespace DroidBattle.Modes
             string choice = Console.ReadLine();
 
             if (choice == "1")
+            {
                 return new AttackDroid(playerName);
+            }
             else
+            {
                 return new DefenseDroid(playerName);
+            }
+
         }
 
 
         private static bool TeamIsAlive(Droid[] team)
         {
             foreach (var droid in team)
-                if (droid.IsAlive()) return true;
+            {
+                if (droid.IsAlive())
+                {
+                return true;
+                }
+            }
             return false;
         }
 

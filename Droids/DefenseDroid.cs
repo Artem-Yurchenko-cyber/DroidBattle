@@ -1,4 +1,4 @@
-﻿using DroidBattle.Core;
+﻿using DroidBattle.Droids;
 
 namespace DroidBattle.Droids
 {

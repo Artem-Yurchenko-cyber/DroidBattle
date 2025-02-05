@@ -43,12 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Droid.cs" />
+    <Compile Include="Droids\Droid.cs" />
     <Compile Include="Droids\AttackDroid.cs" />
     <Compile Include="Droids\DefenseDroid.cs" />
-    <Compile Include="Modes\BattleModes.cs" />
+    <Compile Include="Modes\BattleManager.cs" />
     <Compile Include="Modes\RPGMode.cs" />
-    <Compile Include="Main\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Modes\TeamBattle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

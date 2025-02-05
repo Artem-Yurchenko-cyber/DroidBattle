@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DroidBattle.Core
+namespace DroidBattle.Droids
 {
     public abstract class Droid
     {
@@ -21,7 +21,10 @@ namespace DroidBattle.Core
         public void TakeDamage(int amount)
         {
             Health -= amount;
-            if (Health < 0) Health = 0;
+            if (Health < 0)
+            {
+                Health = 0;
+            }
         }
 
         public bool IsAlive() => Health > 0;

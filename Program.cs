@@ -21,19 +21,19 @@ class Program
         switch (choice)
         {
             case "1":
-                BattleModes.PlayerVsDroid();
+                BattleManager.PlayerVsDroid();
                 break;
             case "2":
-                BattleModes.PlayerVsPlayer();
+                BattleManager.PlayerVsPlayer();
                 break;
             case "3":
-                BattleModes.DroidVsDroid();
+                BattleManager.DroidVsDroid();
                 break;
             case "4":
                 RPGMode.Start();
                 break;
             case "5":
-                BattleModes.TeamBattle();
+                BattleManager.TeamBattle();
                 break;
             default:
                 Console.WriteLine("Невірний вибір!");
